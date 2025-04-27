@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>📡 RF Spike 913.80 MHz</name>
+    <description>Detected power: 23.50 dBm</description>
+    <Point>
+      <coordinates>-122.421,37.808,10</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2025-04-27T07:20:49Z</when>
+    </TimeStamp>
+  </Placemark>
+</kml>

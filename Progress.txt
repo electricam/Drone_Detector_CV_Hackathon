@@ -1,0 +1,34 @@
+📜 Project Summary: Tactical RF Scanner & Dashboard
+🛠️ 1. Initial Setup
+✅ Raspberry Pi (RPi) was prepared and connected to your local Wi-Fi.
+✅ RTL-SDR dongle was attached to the RPi USB for RF signal capture.
+✅ SSH access was configured from your Mac → RPi (using sam@raspberrypi.local).
+✅ We set up VS Code Remote SSH so you could directly edit and manage files on the RPi using your Mac.
+
+🔄 2. Background Sync (Auto File Updating)
+✅ You created an rsync loop:
+A small bash script (rsync_loop.sh) was running in the background.
+It auto-synced changes you made in VS Code on your Mac back to the Pi every few seconds.
+This kept local and remote files in sync without manual uploads.
+
+📈 3. RF Data Capture (Waterfall Scanner)
+✅ We built a live tactical scanner:
+You developed and tested rf_live_plot.py, then evolved it into:
+rf_live_plot_v2.py
+rf_waterfall_plot.py
+rf_waterfall_plot_v4.py (final)
+✅ Core functionality:
+Captured live RF samples using RTL-SDR (read_samples).
+Transformed samples into a power spectrum (FFT).
+Displayed the data as a scrolling waterfall plot using Matplotlib.
+Detected signal spikes and:
+Automatically saved snapshots (detections/event_*.png).
+Logged detection events into a CSV file (detections/detections_log.csv).
+
+🌐 4. Flask Web Dashboard (Visual Frontend)
+✅ Installed Flask web server (even though it needed some workarounds).
+✅ Built a lightweight Flask app (dashboard_server.py) that:
+Auto-detected new saved RF snapshots from the /detections/ folder.
+Displayed them live on a clean simple webpage (localhost:5000).
+✅ You successfully loaded the dashboard from your Mac browser by connecting to the Pi’s local IP address (e.g., 10.1.63.121:5000).
+

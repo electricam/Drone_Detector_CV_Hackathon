@@ -1,0 +1,15 @@
+🛰️ New Mission: Integrate RF Scanning → ATAK (Android Team Awareness Kit)
+
+Goal	Description
+📡 Capture RF signals	(You're already doing this: frequency, power, timestamp)
+🗺️ Geotag RF data	Add GPS coordinates (approximate if moving or fixed station)
+🎯 Visualize RF Strengths	Push detections into ATAK as markers showing strength (circle size or color)
+📍 Show movement	Over time, update RF points if they're moving (track drifting RF sources like drones)
+🧠 What's Needed to Do This:
+
+Task	How to Do It
+🛜 Get a live GPS source	From your RPi (e.g., USB GPS dongle) or hardcode initial static position if indoors.
+📤 Send RF detections to ATAK	Best done via Cursor-on-Target (CoT) XML over network (UDP broadcast, TCP push).
+🖥️ Add a CoT server or broadcaster	Simple Python script listens for RF events and sends CoT packets.
+🗂️ Format detections correctly	ATAK expects standard CoT fields: <event>, <point lat="" lon="" hae=""/>, etc.
+📊 Encode RF Strength	Use circular radius size, or marker color to show signal power.
